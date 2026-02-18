@@ -1,35 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tom McCarthy</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
 </head>
 <body>
-  <header>
-    <h1>Tom McCarthy</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="now.html">Now</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Tom McCarthy home">
+        <div class="brand-mark">
+          <img src="assets/tm.png" alt="Tom McCarthy logo" />
+        </div>
+      </a>
 
-  <main>
-    <h2>Hi, I'm Tom</h2>
-    <p>I'm passionate about innovation and the future of work. Interested in technology’s cross-industry impact..</p>
-    <p>Here you can find my <a href="portfolio.html">projects</a>, a bit <a href="about.html">about me</a>, and what I’m <a href="now.html">doing now</a>.</p>
-  </main>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-  <footer>
-    <p>© <span id="year"></span> Your Name</p>
-  </footer>
+    <main class="terminal">
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~$ whoami</p>
+
+        <h3>Tom M.</h3>
+        <p class="muted">
+          Melbourne-based IT student with hands-on experience across systems and software.
+          Focused on building practical, efficient solutions that deliver real impact.
+        </p>
+
+        <div class="section">
+          <h3>Quick links</h3>
+          <p>
+            View my <a href="portfolio.html">projects</a>,
+            learn more <a href="about.html">about me</a>,
+            or <a href="contact.html">get in touch</a>.
+          </p>
+          <p class="muted">
+            Tip: start with <span class="kbd">Portfolio</span> if you’re short on time.
+          </p>
+        </div>
+
+        <footer>
+          <p>© <span id="year"></span> Tom McCarthy</p>
+        </footer>
+      </div>
+
+      <div class="corner-anim" aria-hidden="true">
+        <canvas id="cornerSnake" width="120" height="120"></canvas>
+      </div>
+    </main>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("cornerSnake");
+      if (!canvas) return;
+
+      const ctx = canvas.getContext("2d", { alpha: true });
+      const W = canvas.width;
+      const H = canvas.height;
+
+      const cell = 6;
+      const pad = 10;
+      const cols = Math.floor((W - pad * 2) / cell);
+      const rows = Math.floor((H - pad * 2) / cell);
+
+      const inset = 2;
+      const x0 = inset, y0 = inset;
+      const x1 = cols - inset - 1, y1 = rows - inset - 1;
+
+      const path = [];
+      for (let x = x0; x <= x1; x++) path.push([x, y0]);
+      for (let y = y0 + 1; y <= y1; y++) path.push([x1, y]);
+      for (let x = x1 - 1; x >= x0; x--) path.push([x, y1]);
+      for (let y = y1 - 1; y >= y0 + 1; y--) path.push([x0, y]);
+
+      const length = Math.max(10, Math.floor(path.length * 0.22));
+      let headIndex = 0;
+
+      const speedFps = 9;
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        for (let i = 0; i < length; i++) {
+          const idx = (headIndex - i + path.length) % path.length;
+          const [gx, gy] = path[idx];
+
+          const alpha = 0.9 * (1 - i / length);
+          ctx.fillStyle = `rgba(51,255,153,${alpha})`;
+          ctx.fillRect(pad + gx * cell, pad + gy * cell, cell, cell);
+        }
+
+        headIndex = (headIndex + 1) % path.length;
+      }
+
+      let last = 0;
+      function tick(ts) {
+        if (ts - last >= 1000 / speedFps) {
+          draw();
+          last = ts;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
 </body>
 </html>
+

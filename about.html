@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About - Your Name</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - Tom McCarthy</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
 </head>
 <body>
-  <header><a href="index.html">← Home</a></header>
-  <main>
-    <h2>About Me</h2>
-    <p>Soon graduating with a Bachelor of IT from RMIT, Melbourne-based and ready to get into the industry. Beyond the degree, I’m drawn to blockchain, tokenization, IoT and the future of work—exploring how emerging techs impact on society. Open to all opportunities and eager to contribute ideas and energy to teams in Melbourne or beyond..</p>
-    <p>Outside of tech, I enjoy going back to my hometown in regional Victoria and seeing friends.</p>
-  </main>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Tom McCarthy home">
+        <div class="brand-mark">
+          <img src="assets/tm.png" alt="Tom McCarthy logo" />
+        </div>
+      </a>
+
+      <nav>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="terminal">
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~/about$ cat about.md</p>
+
+        <h3>About</h3>
+        <p>
+I’m originally from regional Victoria and moved to Melbourne four years ago to pursue my studies. 
+I chose Information Technology as a broad and future-focused foundation.
+</p>
+
+<p>
+RMIT’s IT pathway program exposed me to the full spectrum of technology disciplines. 
+I gained hands-on experience in networking with Cisco hardware and Packet Tracer, built and managed virtualised environments across Windows Server, macOS and Linux, and designed functional web applications from wireframe to deployment.
+</p>
+
+<p>
+My coursework has included AWS cloud infrastructure, software engineering in Java and Python, full-stack web development, cybersecurity fundamentals, blockchain technologies, and project management in collaborative environments.
+</p>
+
+<p>
+The areas that have resonated most with me are cloud infrastructure, software engineering & blockchain — disciplines where systems thinking and practical execution meet real-world impact.
+</p>
+
+        <div class="section">
+          <h3>Currently: 17/02/26</h3> 
+          <p>
+            I’m in my final semester of my Bachelor’s in IT.
+          </p>
+          <p>
+            Recently I’ve been focusing on cloud infrastructure and its financial impact.
+            I’ve completed the <strong>FinOps Certified Practitioner</strong> and
+            the <strong>AWS Certified Cloud Practitioner</strong> certifications. 
+            Next up I'm planning on completing the AWS Certified Solutions Architect - Associate course, I think it will help to flesh out my Cloud credentials.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
 </body>
 </html>

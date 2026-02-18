@@ -1,35 +1,316 @@
-body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background-color: #fff;
+/* ==========================
+   Inter Variable Font
+   ========================== */
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ==========================
+   Base + Theme
+   ========================== */
+:root{
+  --bg: #0b0f14;
+  --panel: rgba(255,255,255,0.04);
+  --panel-2: rgba(255,255,255,0.02);
+  --border: rgba(255,255,255,0.25);
+  --text: rgba(255,255,255,0.88);
+  --muted: rgba(255,255,255,0.62);
+
+  --accent: #33ff99;
+  --shadow: 0 25px 60px rgba(0,0,0,0.6);
+
+  --max: 860px;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+
+body{
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+
+  line-height: 1.65;
+  color: var(--text);
+
+  background:
+    radial-gradient(900px 500px at 20% -10%, rgba(51,255,153,0.08), transparent 55%),
+    linear-gradient(180deg, #070a0f 0%, var(--bg) 100%);
+}
+
+/* ==========================
+   Layout
+   ========================== */
+.container{
+  width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
-  max-width: 700px;
-  padding: 2rem;
+  padding: 3.5rem 0 4rem;
 }
 
-header {
-  margin-bottom: 2rem;
-  text-align: center;
+/* ==========================
+   Header / Nav
+   ========================== */
+.site-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.75rem;
 }
 
-nav a {
-  margin: 0 0.5rem;
+.brand{
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #0077cc;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.brand-mark{
+  display: grid;
+  place-items: center;
+  transition: transform 160ms ease;
 }
 
-h1, h2 {
+.brand-mark img{
+  width: 140px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.45));
+}
+
+.brand-mark:hover{
+  transform: translateY(-1px);
+}
+
+/* ==========================
+   Navigation
+   ========================== */
+nav{
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+nav a{
+  position: relative;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 140ms ease;
+}
+
+nav a::after{
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.34rem;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(51,255,153,0.75);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms ease;
+}
+
+nav a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,0.04);
+}
+
+nav a:hover::after{
+  transform: scaleX(1);
+}
+
+nav a[aria-current="page"]{
+  color: var(--text);
+  background: rgba(51,255,153,0.15);
+}
+
+nav a[aria-current="page"]::after{
+  transform: scaleX(1);
+}
+
+/* ==========================
+   Terminal Panel (Refined)
+   ========================== */
+.terminal{
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: linear-gradient(
+    180deg,
+    var(--panel),
+    var(--panel-2)
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    var(--shadow);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 3px,
+      transparent 6px
+    );
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+.terminal::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background: rgba(255,255,255,0.35);
+}
+
+.terminal-body{
+  padding: 1.6rem 1.6rem 2rem;
+}
+
+/* ==========================
+   Terminal Prompt
+   ========================== */
+.prompt{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: var(--accent);
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+}
+
+.prompt .dim{
+  color: rgba(51,255,153,0.65);
+}
+
+.prompt::after{
+  content:"";
+  display:inline-block;
+  width: 0.6ch;
+  height: 1em;
+  margin-left: 0.35ch;
+  background: rgba(51,255,153,0.55);
+  transform: translateY(0.1em);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink{
+  50%{ opacity:0; }
+}
+
+/* ==========================
+   Typography
+   ========================== */
+h1, h2, h3{
+  margin: 0 0 0.75rem;
+}
+
+h2{
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   font-weight: 600;
 }
 
-footer {
-  margin-top: 3rem;
+p{
+  margin: 0 0 1rem;
+}
+
+.muted{
+  color: var(--muted);
+}
+
+a{
+  color: rgba(255,255,255,0.9);
+}
+
+a:hover{
+  color: var(--accent);
+}
+
+.section{
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.kbd{
+  font-family: ui-monospace, monospace;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.25);
+}
+
+footer{
+  margin-top: 1.5rem;
+  color: var(--muted);
   text-align: center;
   font-size: 0.9rem;
-  color: #666;
 }
+
+/* ==========================
+   Corner Snake Animation
+   ========================== */
+.corner-anim{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.corner-anim canvas{
+  display: block;
+}
+
+/* ==========================
+   Responsive
+   ========================== */
+@media (max-width: 680px){
+  .site-header{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav{
+    flex-wrap: wrap;
+  }
+
+  .brand-mark img{
+    width: 120px;
+  }
+}
+
+
+

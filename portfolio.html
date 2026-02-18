@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio - Your Name</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Tom McCarthy</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
 </head>
 <body>
-  <header><a href="index.html">← Home</a></header>
-  <main>
-    <h2>Portfolio</h2>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <div class="brand-mark">
+          <img src="assets/tm.png" alt="Tom McCarthy logo" />
+        </div>
+      </a>
 
-    <section>
-      <h3>Project Title</h3>
-      <p>Please find below a link to my GitHub:</p>
-      <p><a href="https://github.com/tommmcc?tab=repositories" target="_blank">View my repositories on GitHub</a></p>
-    </section>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 
-    <section>
-      <h3>Another Project</h3>
-      <p>Description goes here…</p>
-    </section>
-  </main>
+    <main class="terminal">
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~/projects$ ls</p>
+
+        <h3>Projects</h3>
+
+        <p>
+          Most of my projects can be found here:
+          <a href="https://github.com/tommmcc" target="_blank">
+            github.com/tommmcc
+          </a>
+        </p>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
+
