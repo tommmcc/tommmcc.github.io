@@ -77,8 +77,6 @@ body{
   display: flex;
   align-items: center;
   text-decoration: none;
-
-  /* 🔧 SHIFT LOGO LEFT */
   margin-left: -40px;
 }
 
@@ -313,6 +311,27 @@ footer{
   .brand-mark img{
     width: 120px;
   }
+}
+
+/* ==========================
+   Now Snippet
+   ========================== */
+.now-content{
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.now-toggle{
+  margin-left: 0.6rem;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+}
+
+.now-toggle:hover{
+  color: var(--accent);
 }
 
 

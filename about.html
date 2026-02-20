@@ -36,6 +36,7 @@
         <p class="prompt"><span class="dim">tom@portfolio</span>:~/about$ cat about.md</p>
 
         <h3>About</h3>
+
         <p>
 I’m originally from regional Victoria and moved to Melbourne four years ago to pursue my studies. 
 I chose Information Technology as a broad and future-focused foundation.
@@ -54,20 +55,55 @@ My coursework has included AWS cloud infrastructure, software engineering in Jav
 The areas that have resonated most with me are cloud infrastructure, software engineering & blockchain — disciplines where systems thinking and practical execution meet real-world impact.
 </p>
 
-        <div class="section">
-          <h3>Currently: 17/02/26</h3> 
-          <p>
-            I’m in my final semester of my Bachelor’s in IT.
+        <!-- Now + Reading Inline -->
+        <div class="now-snippet">
+          <p class="muted">
+            <strong>What I'm doing now:</strong>
+            <a href="#" class="now-toggle" onclick="toggleNow(event)">[ View ]</a>
+
+            <span style="margin: 0 12px;">·</span>
+
+            <strong>What I'm reading:</strong>
+            <a href="https://goodreads.com/tommmcc" target="_blank" rel="noopener">Goodreads</a>
           </p>
-          <p>
-            Recently I’ve been focusing on cloud infrastructure and its financial impact.
-            I’ve completed the <strong>FinOps Certified Practitioner</strong> and
-            the <strong>AWS Certified Cloud Practitioner</strong> certifications. 
-            Next up I'm planning on completing the AWS Certified Solutions Architect - Associate course, I think it will help to flesh out my Cloud credentials.
-          </p>
+
+          <div id="now-content" class="now-content">
+            <h4>As of: 20/02/26</h4>
+
+            <p>I’m in my final semester of my Bachelor’s in IT.</p>
+
+            <p>
+              Recently I’ve been focusing on cloud infrastructure and its financial impact. I’ve completed the
+              <strong>FinOps Certified Practitioner</strong> and the
+              <strong>AWS Certified Cloud Practitioner</strong>
+              certifications. Next up I'm planning on completing the
+              <strong>AWS Certified Solutions Architect - Associate</strong>
+              course, I think it will help to flesh out my Cloud credentials.
+            </p>
+
+            <p>
+              I’m also setting up a dual-boot environment on my PC, adding Linux alongside Windows.
+              Early in my studies in 2023, I enjoyed deploying virtualised Linux Mint environments,
+              so I’m returning to that ecosystem and making Linux my primary daily OS.
+            </p>
+          </div>
         </div>
+
       </div>
     </main>
   </div>
+
+  <script>
+    function toggleNow(e){
+      e.preventDefault();
+      const content = document.getElementById("now-content");
+      const toggle = document.querySelector(".now-toggle");
+
+      const isOpen = content.style.display === "block";
+      content.style.display = isOpen ? "none" : "block";
+      toggle.textContent = isOpen ? "[ View ]" : "[ Hide ]";
+    }
+  </script>
+
 </body>
 </html>
