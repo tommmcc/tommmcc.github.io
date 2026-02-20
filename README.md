@@ -24,8 +24,7 @@ It’s meant to feel personal, honest and useful.
 
 - Home  
 - About  
-- Portfolio  
-- Now  
+- Portfolio   
 - Contact  
 
 ---
@@ -56,7 +55,7 @@ The upcoming version will:
 - Include Linux console–style elements  
 - Show where the user is on the site using terminal-inspired design  
 
-Planned update: **11/02/2026**
+Next update: **25/02/2026**
 
 ---
 
