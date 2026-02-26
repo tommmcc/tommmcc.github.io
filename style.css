@@ -334,5 +334,62 @@ footer{
   color: var(--accent);
 }
 
+/* ==========================
+   Single-page scroll + section reveal
+   ========================== */
 
+/* Smooth scrolling for anchor nav */
+html { scroll-behavior: smooth; }
+
+/* Stack multiple terminals vertically */
+.stack{
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Make anchor jumps feel nicer (so the section isn't glued to the top) */
+.page-section{
+  scroll-margin-top: 1.25rem;
+  transition: opacity 240ms ease, filter 240ms ease, transform 240ms ease;
+}
+
+/* Dimmed until in view */
+.page-section.is-dim{
+  opacity: 0.28;
+  filter: blur(1.2px) saturate(0.9);
+  transform: translateY(10px);
+}
+
+/* Active section */
+.page-section.is-active{
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce){
+  html { scroll-behavior: auto; }
+  .page-section{ transition: none; }
+  .page-section.is-dim{ transform: none; filter: none; }
+}
+
+/* === SIMPLE FIX: Contact is never dimmed === */
+#contact {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Optional: make it look intentional (tiny terminal-green edge) */
+#contact::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border: 1px solid rgba(51,255,153,0.35);
+  border-radius: 12px; /* adjust if your terminal radius differs */
+}
+#contact{ position: relative; }
 

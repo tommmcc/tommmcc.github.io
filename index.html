@@ -15,23 +15,27 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png">
 </head>
+
 <body>
   <div class="container">
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Tom McCarthy home">
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Tom McCarthy home">
         <div class="brand-mark">
           <img src="assets/tm.png" alt="Tom McCarthy logo" />
         </div>
       </a>
 
       <nav>
-        <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <main class="terminal">
+    <div class="stack">
+
+      <!-- HOME -->
+      <main class="terminal page-section is-active" id="home" data-section>
       <div class="terminal-body">
         <p class="prompt"><span class="dim">tom@portfolio</span>:~$ whoami</p>
 
@@ -44,9 +48,9 @@
         <div class="section">
           <h3>Quick links</h3>
           <p>
-            View my <a href="portfolio.html">portfolio</a>,
-            learn more <a href="about.html">about me</a>,
-            or <a href="contact.html">get in touch</a>.
+            View my <a href="#portfolio">portfolio</a>,
+            learn more <a href="#about">about me</a>,
+            or <a href="#contact">get in touch</a>.
           </p>
           <p class="muted">
             Tip: start with <span class="kbd">Portfolio</span> if you’re short on time.
@@ -62,10 +66,260 @@
         <canvas id="cornerSnake" width="120" height="120"></canvas>
       </div>
     </main>
+
+      <!-- ABOUT -->
+      <main class="terminal page-section is-dim" id="about" data-section>
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~/about$ cat about.md</p>
+
+        <h3>About</h3>
+
+        <p>
+I’m originally from regional Victoria and moved to Melbourne four years ago to pursue my studies. 
+I chose Information Technology as a broad and future-focused foundation.
+</p>
+
+<p>
+RMIT’s IT pathway program exposed me to the full spectrum of technology disciplines. I gained hands-on 
+experience in networking with Cisco hardware and Packet Tracer, built and managed virtualised environments 
+across Windows Server, macOS and Linux, and designed functional web applications from wireframe to 
+deployment.
+</p>
+
+<p>
+My coursework has included AWS cloud infrastructure, software engineering in Java and Python, full-stack 
+web development, cybersecurity fundamentals, blockchain technologies, and project management in 
+collaborative environments.
+</p>
+
+        <div class="now-snippet">
+          <p class="muted">
+            <strong>What I'm doing now:</strong>
+            <a href="#" class="now-toggle" onclick="toggleNow(event)">[ View ]</a>
+
+            <span style="margin: 0 12px;">·</span>
+
+            <strong>What I'm reading:</strong>
+            <a href="https://goodreads.com/tommmcc" target="_blank" rel="noopener">Goodreads</a>
+          </p>
+
+          <div id="now-content" class="now-content">
+            <h4>As of: 20/02/26</h4>
+
+            <p>I’m in my final semester of my Bachelor’s in IT.</p>
+
+            <p>
+              Recently I’ve been focusing on cloud infrastructure and its financial impact. I’ve completed the
+              <strong>FinOps Certified Practitioner</strong> and the
+              <strong>AWS Certified Cloud Practitioner</strong>
+              certifications. Next up I'm planning on completing the
+              <strong>AWS Certified Solutions Architect - Associate</strong>
+              course, I think it will help to flesh out my Cloud credentials.
+            </p>
+
+            <p>
+              I’m also setting up a dual-boot environment on my PC, adding Linux alongside Windows.
+              Early in my studies in 2023, I enjoyed deploying virtualised Linux Mint environments,
+              so I’m returning to that ecosystem and making Linux my primary daily OS.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+      <!-- PORTFOLIO -->
+      <main class="terminal page-section is-dim" id="portfolio" data-section>
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~/projects$ ls</p>
+
+        <h3>Projects</h3>
+
+        <div class="project">
+          <h4>bayesian-coinflip/</h4>
+
+          <p>
+            A small probability project demonstrating Bayesian updating using the
+            Beta-Binomial model to estimate coin bias and quantify uncertainty.
+          </p>
+
+          <p>
+            Bayesian inference is fundamentally about updating belief by combining
+            prior assumptions with observed evidence to produce a posterior distribution.
+          </p>
+
+          <p class="muted">
+            python · probability · bayesian inference
+          </p>
+
+          <p class="project-links">
+            <a href="https://github.com/tommmcc/bayesian-coinflip"
+               target="_blank"
+               rel="noopener">
+              repo
+            </a>
+          </p>
+        </div>
+
+        <div class="project">
+  <h4>university-work/</h4>
+
+  <p>
+    A collection of software engineering projects developed throughout my Diploma, Associate, and Bachelor studies.
+  </p>
+
+  <p>
+    Includes a modular Java Swing resort booking system, a layered
+    library management CRUD application backed by SQLite, and a
+    foundational OOP banking simulation.
+  </p>
+
+  <p class="muted">
+    java · python · swing · sqlite · oop · layered architecture · event-driven programming · file I/O · data validation
+  </p>
+
+  <p class="project-links">
+    <a href="https://github.com/tommmcc/university-work"
+       target="_blank"
+       rel="noopener">
+      repo
+    </a>
+  </p>
+</div>
+
+        <div class="section">
+          <h4>Forthcoming projects:</h4>
+
+          <div class="project">
+            <h4>ci-cd-pipeline/</h4>
+            <p>
+              A robust DevOps workflow implementing automated build and deployment.
+              Integrates static code analysis, unit testing, and code coverage reporting
+              to mitigate risk in Agile environments. (Bachelors submission)
+            </p>
+            <p class="muted">devops · ci-cd · automation · agile</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+      <!-- CONTACT -->
+      <main class="terminal page-section is-dim" id="contact" data-section>
+      <div class="terminal-body">
+        <p class="prompt"><span class="dim">tom@portfolio</span>:~/contact$ cat contact.txt</p>
+
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:thomasmdmccarthy@gmail.com">thomasmdmccarthy@gmail.com</a></p>
+
+        <p>
+          <a href="https://github.com/tommmcc" target="_blank" rel="noopener">GitHub</a> |
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+
+        <p class="muted">Resume available upon request.</p>
+      </div>
+    </main>
+
+    </div>
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    function toggleNow(e){
+      e.preventDefault();
+      const content = document.getElementById("now-content");
+      const toggle = document.querySelector(".now-toggle");
+
+      const isOpen = content.style.display === "block";
+      content.style.display = isOpen ? "none" : "block";
+      toggle.textContent = isOpen ? "[ View ]" : "[ Hide ]";
+    }
+  </script>
+
+  <!-- ✅ Only ONE active section: choose the MOST VISIBLE section -->
+  <script>
+    (function () {
+      const sections = Array.from(document.querySelectorAll("[data-section]"));
+      const navLinks = Array.from(document.querySelectorAll("nav a"));
+
+      function visibleRatio(el) {
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+
+        const top = Math.max(rect.top, 0);
+        const bottom = Math.min(rect.bottom, vh);
+        const visible = Math.max(0, bottom - top);
+
+        if (visible <= 0) return 0;
+
+        // Key detail: normalize against min(section height, viewport height)
+        // so short sections (like Contact) can still become active properly.
+        const denom = Math.min(rect.height, vh);
+        return visible / denom;
+      }
+
+      function setActive() {
+        let best = null;
+        let bestScore = -1;
+
+        for (const s of sections) {
+          const score = visibleRatio(s);
+
+          if (score > bestScore) {
+            bestScore = score;
+            best = s;
+          } else if (score === bestScore && best) {
+            // Tie-break: closer to top of viewport
+            const a = Math.abs(s.getBoundingClientRect().top);
+            const b = Math.abs(best.getBoundingClientRect().top);
+            if (a < b) best = s;
+          }
+        }
+
+        if (!best) best = sections[0];
+
+        sections.forEach((s) => {
+          if (s === best) {
+            s.classList.remove("is-dim");
+            s.classList.add("is-active");
+          } else {
+            s.classList.remove("is-active");
+            s.classList.add("is-dim");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          const match = href === "#" + best.id;
+          if (match) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+      }
+
+      // rAF throttle
+      let ticking = false;
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          setActive();
+          ticking = false;
+        });
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+
+      window.addEventListener("load", () => {
+        setActive();
+        if (location.hash) {
+          const target = document.querySelector(location.hash);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
   </script>
 
   <script>
@@ -125,4 +379,3 @@
   </script>
 </body>
 </html>
-
