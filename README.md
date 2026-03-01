@@ -2,7 +2,7 @@
 
 This is a simple, minimal personal website with elements inspired by https://sive.rs/.
 
-The goal is to create a clear, easy-to-use space that shares who I am, what I’m working on, and what I’m thinking about — without unnecessary clutter.
+The goal is to create a clear, easy-to-use simple site that shares who I am, what I’m working on, and what I’m thinking about — without unnecessary clutter.
 
 ---
 
@@ -23,9 +23,9 @@ It’s meant to feel personal, honest and useful.
 ## Pages
 
 - Home  
-- About  
-- Portfolio   
-- Contact  
+- About 
+- Portfolio 
+- Contact 
 
 ---
 
@@ -51,14 +51,11 @@ I am now working on the next iteration of the site.
 
 The upcoming version will:
 
-- Use a darker theme  
-- Include Linux console–style elements  
-- Show where the user is on the site using terminal-inspired design  
+1. Display gif/scrnshots of portfolio work
+2. Ambient green gradient in black background
+3. 2-3 more non-uni projects: pongv2, custom-notepad and a password manager.
 
-Next update: **25/02/2026**
-
----
-
+Next update: **05/03/26**
 
 
 ---
