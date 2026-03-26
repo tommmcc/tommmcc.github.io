@@ -31,7 +31,7 @@ The upcoming version will:
 2. Ambient green gradient in black background
 3. 2-3 more non-uni projects: pongv2, custom-notepad and a password manager.
 
-Next update: **05/03/26**
+Next update: Light mode portrait view. A minimalist alternative for a cleaner display of portfolio work. 28/03/26
 
 
 ---
